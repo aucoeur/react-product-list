@@ -36,8 +36,11 @@ const objInventory = Object.entries(categoryCounts).reduce((arr, entry) => {
 }, [])
 console.log(objInventory)
 
- 
+const inventory = data.map( ({name, category, description, price, id}) => {
+      return <div className="product"> { name } { price } { description} { category}</div>
+    }
+  )
 
 // Challenge 6 - Export all of the data you have collected.
 export default data;
-export { categoriesUnique, categoryCounts, objInventory }
+export { categoriesUnique, categoryCounts, objInventory, inventory }
