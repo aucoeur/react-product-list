@@ -13,6 +13,11 @@ function App() {
   function getCategory(newValue) {
     setCategory(newValue)
   }
+
+  function resetState() {
+    setCategory('All')
+  }
+
   const categories = categoriesUnique.map((category, i) => {
 
       return <Button category={category} id={category} key={i} value={category} onClick={getCategory}
@@ -25,6 +30,7 @@ function App() {
   return (
     <div>
       <div className='categories'>
+        <button value="All" onClick={resetState}>ALL CATEGORIES</button>
         {categories}
       </div>
       <div className="ProductList">
