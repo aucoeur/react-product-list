@@ -33,7 +33,7 @@ const categoryCounts = data.reduce(( item, {category}) => {
 
 // Challenge 5 - Use Reduce to make an array of objects that have a name and a count. This array will be similar to Challenge 4 but in a different format. For this list all of the names should be unique and each should only appear once!
 
-// const objInventory = Object.entries(categoryCounts) // can we do like this??
+// can we do like this??
 const objInventory = Object.entries(categoryCounts).reduce((arr, entry) => {
     const [key, value] = entry
     arr.push({name: key, count: value})

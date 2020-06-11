@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+
 import ProductList from './components/ProductList';
 import Button from './components/Button'
 
@@ -9,6 +10,7 @@ import { categoriesUnique } from './data';
 
 function App() {
   const [ currentCategory, setCategory ] = useState('All')
+  // passes currentCategory state as prop to ProductList to conditionally use map/filter
 
   function getCategory(newValue) {
     setCategory(newValue)
@@ -19,13 +21,9 @@ function App() {
   }
 
   const categories = categoriesUnique.map((category, i) => {
-
-      return <Button category={category} id={category} key={i} value={category} onClick={getCategory}
-        />
-
+      return <Button category={category} id={category} key={i} value={category} onClick={getCategory}/>
     }
   )
-
 
   return (
     <div>
@@ -34,7 +32,7 @@ function App() {
         {categories}
       </div>
       <div className="ProductList">
-        <ProductList currentCategory={currentCategory} />
+        <ProductList currentCategory={currentCategory} />  
       </div>
     </div>
   )
