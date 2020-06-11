@@ -1,39 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-import Product from './components/Product';
+import ProductList from './components/ProductList';
 import Button from './components/Button'
 
 // Challenge 7 - Import your exported data into the App component. 
-import data, { categoriesUnique, categoryCounts, objInventory } from './data';
+import { categoriesUnique } from './data';
 
 
 function App() {
-  // const [ currentCategory, setCategory ] = useState('Sports')
+  const [ currentCategory, setCategory ] = useState('All')
 
+  function getCategory(newValue) {
+    setCategory(newValue)
+  }
   const categories = categoriesUnique.map((category, i) => {
 
-      return <Button category={category} id={category} key={i} value={category}
+      return <Button category={category} id={category} key={i} value={category} onClick={getCategory}
         />
 
     }
   )
 
-  const products = data
-  // .filter(product => product.category === currentCategory)
-  .map((product) => {
-      return <Product data={product} key={product.id}/>
-      // return <div className="product"> { name } { price } { description} { category}</div>
-    }
-  )
 
   return (
     <div>
       <div className='categories'>
         {categories}
       </div>
-
-      <div className='ProductList'>{products}</div>
+      <div className="ProductList">
+        <ProductList currentCategory={currentCategory} />
+      </div>
     </div>
   )
 }

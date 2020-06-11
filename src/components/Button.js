@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import { categoriesUnique } from '../data';
+import React from 'react';
+// import { categoriesUnique } from '../data';
 
-function Button({category}) {
-
+function Button(props) {
+    const {category, value, onClick} = props
+    function getCategory(event) {
+        onClick(event.target.value);
+    }
     return <button 
             className='category' 
-            value={category}> {category}
-        </button>
+            value={value}
+            onClick={getCategory}> 
+                {category}
+            </button>
 }
 
 export default Button;
