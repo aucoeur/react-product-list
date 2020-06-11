@@ -11,7 +11,12 @@ const categories = data.map(( { category }, i ) => {
 
 // Challenge 3 - Make the categories list a list of unique values.
 const setCategories = new Set(categories) // Set returns unique values only
-const categoriesUnique = Array.from(setCategories) // Make an array from set
+const categoriesUnique = Array.from(setCategories).sort() // Make an array from set, sort alphabetically
+
+// alt way to copy & sort, since sort transforms OG data
+    // const copy = [...categoriesUnique]
+    // copy.sort()
+
 // console.log(categoriesUnique)
 
 // Challenge 4 - Make an Object whose keys are the names of categories and whose values are the number of times that category appears in the data.
@@ -34,7 +39,7 @@ const objInventory = Object.entries(categoryCounts).reduce((arr, entry) => {
     arr.push({name: key, count: value})
     return arr
 }, [])
-console.log(objInventory)
+// console.log(objInventory)
 
 const inventory = data.map( ({name, category, description, price, id}) => {
       return <div className="product"> { name } { price } { description} { category}</div>
