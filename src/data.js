@@ -10,7 +10,7 @@ const categories = data.map(( { category }, i ) => {
 })
 
 // Challenge 3 - Make the categories list a list of unique values.
-const setCategories = new Set(categories) // Set returns unique values only
+const setCategories = new Set(categories) 
 const categoriesUnique = Array.from(setCategories).sort() // Make an array from set, sort alphabetically
 
 // alt way to copy & sort, since sort transforms OG data

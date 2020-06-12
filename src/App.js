@@ -5,7 +5,7 @@ import ProductList from './components/ProductList';
 import Button from './components/Button'
 
 // Challenge 7 - Import your exported data into the App component. 
-import { categoriesUnique } from './data';
+import { categoryCounts, categoriesUnique } from './data';
 
 
 function App() {
@@ -13,22 +13,24 @@ function App() {
   // passes currentCategory state as prop to ProductList to conditionally use map/filter
 
   function getCategory(newValue) {
-    setCategory(newValue)
+    setCategory(newValue);
   }
 
   function resetState() {
-    setCategory('All')
+    setCategory('All');
   }
 
   const categories = categoriesUnique.map((category, i) => {
-      return <Button category={category} id={category} key={i} value={category} onClick={getCategory}/>
+      const count = categoryCounts
+      // console.log(count[category])
+      return <Button category={category} id={category} key={i} value={category} count={count[category]} onClick={getCategory}/>
     }
   )
 
   return (
     <div>
       <div className='categories'>
-        <button value="All" onClick={resetState}>ALL CATEGORIES</button>
+        <button id="All" className="category" value="All" onClick={resetState}>ALL CATEGORIES</button>
         {categories}
       </div>
       <div className="ProductList">

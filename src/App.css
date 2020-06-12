@@ -43,15 +43,15 @@
 }
 
 .categories {
-  margin: 25px;
+  margin: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: normal;
 }
 
 .ProductList {
   width: calc(100% - 80px);
-  margin: auto;
+  margin: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
