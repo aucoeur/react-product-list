@@ -31,7 +31,7 @@ function App() {
           value={category} 
           count={count[category]} 
           onClick={()=> getCategory(category)}
-          // Alternative way
+          // Alternative way, puts anon func in Button.js
           // onClick={getCategory} 
           /> 
       )
