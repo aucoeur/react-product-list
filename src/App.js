@@ -23,14 +23,32 @@ function App() {
   const categories = categoriesUnique.map((category, i) => {
       const count = categoryCounts
       // console.log(count[category])
-      return <Button category={category} id={category} key={i} value={category} count={count[category]} onClick={getCategory}/>
+      return ( 
+        <Button 
+          category={category} 
+          id={category} 
+          key={i} 
+          value={category} 
+          count={count[category]} 
+          onClick={()=> getCategory(category)}
+          // Alternative way
+          // onClick={getCategory} 
+          /> 
+      )
     }
   )
 
+  const total = categoriesUnique.reduce( (acc, category) => { return acc + categoryCounts[category] }, 0)
+
   return (
-    <div>
+    <div className="container">
       <div className='categories'>
-        <button id="All" className="category" value="All" onClick={resetState}>ALL CATEGORIES</button>
+        <button id="All" className="category" value="All" onClick={resetState}>
+          <span className="text-center">ALL CATEGORIES </span>
+          <div className="badge">
+            <span className="text-center">{total}</span>
+          </div>
+        </button>
         {categories}
       </div>
       <div className="ProductList">
